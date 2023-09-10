@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Card</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .quiz-card {
+        border: none;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .answer-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      @media (max-width: 768px) {
+        .hide-mobile {
+          display: none;
+        }
+      }
+
+      .question-navigation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap; /* Allow buttons to wrap to the next row */
+      }
+
+      .question-button {
+        width: 60px;
+        height: 60px;
+        margin: 5px;
+        border: none;
+        border-radius: 10px; /* Updated border radius */
+        font-size: 18px;
+        background-color: #ccc;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Added transition */
+      }
+
+      .question-button.active,
+      .question-button.clicked {
+        background-color: #4caf50;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <div class="col-md-6">
+          <div class="card quiz-card">
+            <div class="card-body">
+              <h5 class="card-title">Quiz Question</h5>
+              <p class="card-text">What is the capital of France?</p>
+              <div class="answer-options">
+                <button class="btn btn-primary answer-button" data-answer="a">
+                  Option A: Paris
+                </button>
+                <button class="btn btn-primary answer-button" data-answer="b">
+                  Option B: London
+                </button>
+                <button class="btn btn-primary answer-button" data-answer="c">
+                  Option C: Berlin
+                </button>
+                <button class="btn btn-primary answer-button" data-answer="d">
+                  Option D: Rome
+                </button>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <div>
+                  <button class="btn btn-primary show-answer-button mt-5">
+                    See Answer
+                  </button>
+                </div>
+                <div>
+                  <button class="btn btn-primary show-answer-button mt-5">
+                    sumbit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 ml-5 hide-mobile">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card 2</h5>
+              <p class="card-text">This is the content of card 2.</p>
+              <!-- cards with text in center -->
+              <div class="question-navigation">
+                <button class="question-button">1</button>
+                <button class="question-button">2</button>
+                <button class="question-button active">3</button>
+                <button class="question-button">4</button>
+                <button class="question-button">5</button>
+                <button class="question-button">6</button>
+                <button class="question-button">7</button>
+                <button class="question-button">8</button>
+                <button class="question-button">1</button>
+                <button class="question-button">2</button>
+                <button class="question-button active">3</button>
+                <button class="question-button">4</button>
+                <button class="question-button">5</button>
+                <button class="question-button">6</button>
+                <button class="question-button">7</button>
+                <button class="question-button">8</button
+                ><button class="question-button">1</button>
+                <button class="question-button">2</button>
+                <button class="question-button active">3</button>
+                <button class="question-button">4</button>
+                <button class="question-button">5</button>
+                <button class="question-button">6</button>
+                <button class="question-button">7</button>
+                <button class="question-button">8</button
+                ><button class="question-button">1</button>
+                <button class="question-button">2</button>
+                <button class="question-button active">3</button>
+                <button class="question-button">4</button>
+                <button class="question-button">5</button>
+                <button class="question-button">6</button>
+                <button class="question-button">7</button>
+                <button class="question-button">8</button>
+                <button class="question-button">1</button>
+                <button class="question-button">2</button>
+                <button class="question-button active">3</button>
+                <button class="question-button">4</button>
+                <button class="question-button">5</button>
+                <button class="question-button">6</button>
+                <button class="question-button">7</button>
+                <button class="question-button">8</button
+                ><button class="question-button">1</button>
+                <button class="question-button">2</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const questionButtons = document.querySelectorAll(".question-button");
+
+      questionButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          questionButtons.forEach((btn) => btn.classList.remove("clicked"));
+          button.classList.add("clicked");
+        });
+      });
+    </script>
+  </body>
+</html>
